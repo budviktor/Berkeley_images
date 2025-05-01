@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Berkeley Daily Photo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #f0f0f0;
+    }
+    img {
+      max-width: 90%;
+      height: auto;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+    }
+    #caption {
+      margin-top: 15px;
+      font-style: italic;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Berkeley Daily Photo</h1>
+  <div id="photo-container">
+    <img id="daily-photo" src="" alt="Daily view of Berkeley, CA">
+    <div id="caption"></div>
+  </div>
+
+  <script>
+    // Array of image objects with URLs and captions
+    const images = [
+      {
+        url: "https://example.com/images/berkeley1.jpg",
+        caption: "Sunrise over the Berkeley Hills"
+      },
+      {
+        url: "https://example.com/images/berkeley2.jpg",
+        caption: "Downtown Berkeley at dusk"
+      },
+      {
+        url: "https://example.com/images/berkeley3.jpg",
+        caption: "UC Berkeley Campus on a sunny day"
+      },
+      {
+        url: "https://example.com/images/berkeley4.jpg",
+        caption: "Berkeley Marina during golden hour"
+      },
+      {
+        url: "https://example.com/images/berkeley5.jpg",
+        caption: "Aerial view of Berkeley and the Bay"
+      }
+      // Add more image objects as needed
+    ];
+
+    // Function to display the image based on the current date
+    function displayDailyImage() {
+      const today = new Date();
+      const index = today.getDate() % images.length;
+      const image = images[index];
+      document.getElementById("daily-photo").src = image.url;
+      document.getElementById("caption").textContent = image.caption;
+    }
+
+    // Initialize the daily image on page load
+    window.onload = displayDailyImage;
+  </script>
+</body>
+</html>
